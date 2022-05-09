@@ -2,6 +2,7 @@ NAME		=	phonebook
 
 SRCS		=	\
 				Contact.cpp \
+				Main.cpp \
 				PhoneBook.cpp
 
 _OBJS		=	${SRCS:.cpp=.o}
@@ -21,10 +22,10 @@ build/%.o	:	srcs/%.cpp
 	fi
 	$(CC) ${CFLAGS} ${INCLUDE} -c $< -o $@
 
-$(NAME)	:	$(OBJS) | libs
+$(NAME)	:	$(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
 
-libs	:
+libs	:	FORCE
 	@for lib in $(LIBS); do\
 		echo make -C $$(dirname $$lib);\
 		make -C $$(dirname $$lib);\
@@ -65,4 +66,4 @@ relibs	:
 reall	: relibs re
 
 
-.PHONY	:	all libs clean cleanlibs cleanall fclean fcleanlibs fcleanall re relibs reall
+.PHONY	:	all libs clean cleanlibs cleanall fclean fcleanlibs fcleanall re relibs reall FORCE
