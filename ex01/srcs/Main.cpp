@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 14:13:00 by jmaia             #+#    #+#             */
-/*   Updated: 2022/05/09 19:42:02 by jmaia            ###   ########.fr       */
+/*   Updated: 2022/05/09 19:48:43 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	main(void)
 			addContact(phoneBook);
 		else if (line == "SEARCH")
 			searchContact(phoneBook);
+		else if (line != "")
+			std::cerr << "Please provide a valid action !" << std::endl;
 	}
 }
 
